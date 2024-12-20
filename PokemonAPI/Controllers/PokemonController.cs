@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PokemonAPI.Data;
-using PokemonAPI.Models;
+using PokemonAPI.Models.Pokemon;
+using PokemonAPI.Services.PokemonServices;
 
 namespace PokemonAPI.Controllers
 {
@@ -10,17 +11,17 @@ namespace PokemonAPI.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        private readonly PokemonDbContext _context;
+        private readonly IPokemonService _pokemonService;
 
-        public PokemonController(PokemonDbContext context)
+        public PokemonController(PokemonDbContext context, IPokemonService pokemonService)
         {
-            this._context = context;
+            this._pokemonService = pokemonService;
         }
 
         [HttpGet] // Get: api/Pokemon
         public async Task<ActionResult<IEnumerable<Pokemon>>> GetPokemons()
         {
-            var pokemon = await _context.Pokemons.ToListAsync();
+            var pokemon = await _pokemonService.GetAllPokemonsAsync();
 
             return Ok(pokemon);
         }
@@ -28,7 +29,7 @@ namespace PokemonAPI.Controllers
         [HttpGet("{id}")] // Get: api/Pokemon/5
         public async Task<ActionResult<Pokemon>> GetPokemon(int id)
         {
-            var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id);
+            var pokemon = await _pokemonService.GetPokemonByIdAsync(id);
 
             if (pokemon == null)
             {
@@ -46,54 +47,34 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var pokemon = new Pokemon
-            {
-                Name = pokemonDto.Name,
-                Type = pokemonDto.Type,
-                Level = pokemonDto.Level,
-                TrainerId = pokemonDto.TrainerId,
-                TeamId = pokemonDto.TeamId
-            };
+            var createdPokemon = await _pokemonService.CreatePokemonAsync(pokemonDto);
 
-            _context.Pokemons.Add(pokemon);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetPokemon), new { id = pokemon.Id }, pokemon);
+            return CreatedAtAction(nameof(GetPokemon), new { id = createdPokemon.Id }, createdPokemon);
         }
 
         [HttpPut("{id}")] // Put: api/Pokemon/5
         public async Task<IActionResult> UpdatePokemon(int id, Pokemon pokemon)
         {
-            if(id != pokemon.Id)
-            {
-                return BadRequest();
-            }
+           var updated = await _pokemonService.UpdatePokemonAsync(id, pokemon);
 
-            _context.Entry(pokemon).State = EntityState.Modified;
-
-            try
+            if (!updated)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException) when (!_context.Pokemons.Any(p => p.Id == id))
-            {
-
                 return NotFound();
             }
+
             return NoContent();
         }
 
         [HttpDelete("{id}")] // Delete: api/Pokemon/5
         public async Task<IActionResult> DeletePokemon(int id)
         {
-            var pokemon = await _context.Pokemons.FindAsync(id);
-            if (pokemon == null)
+            var deletedPokemon = await _pokemonService.DeletePokemonAsync(id);
+
+            if (!deletedPokemon)
             {
                 return NotFound();
             }
 
-            _context.Remove(pokemon);
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }

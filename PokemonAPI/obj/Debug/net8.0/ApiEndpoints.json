@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Pokemon, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Pokemon.Pokemon, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,13 +29,13 @@
     "Parameters": [
       {
         "Name": "pokemonDto",
-        "Type": "PokemonAPI.Models.PokemonCreateDto",
+        "Type": "PokemonAPI.Models.Pokemon.PokemonCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Pokemon",
+        "Type": "PokemonAPI.Models.Pokemon.Pokemon",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Pokemon",
+        "Type": "PokemonAPI.Models.Pokemon.Pokemon",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -86,7 +86,7 @@
       },
       {
         "Name": "pokemon",
-        "Type": "PokemonAPI.Models.Pokemon",
+        "Type": "PokemonAPI.Models.Pokemon.Pokemon",
         "IsRequired": true
       }
     ],
@@ -118,7 +118,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Team, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Team.Team, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -138,13 +138,13 @@
     "Parameters": [
       {
         "Name": "teamDto",
-        "Type": "PokemonAPI.Models.TeamCreateDto",
+        "Type": "PokemonAPI.Models.Team.TeamCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Team",
+        "Type": "PokemonAPI.Models.Team.Team",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -170,7 +170,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Team",
+        "Type": "PokemonAPI.Models.Team.Team",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -195,7 +195,7 @@
       },
       {
         "Name": "team",
-        "Type": "PokemonAPI.Models.Team",
+        "Type": "PokemonAPI.Models.Team.Team",
         "IsRequired": true
       }
     ],
@@ -227,7 +227,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Trainer, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PokemonAPI.Models.Trainer.Trainer, PokemonAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -247,13 +247,13 @@
     "Parameters": [
       {
         "Name": "trainerDto",
-        "Type": "PokemonAPI.Models.TrainerCreateDto",
+        "Type": "PokemonAPI.Models.Trainer.TrainerCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Trainer",
+        "Type": "PokemonAPI.Models.Trainer.Trainer",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -279,7 +279,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "PokemonAPI.Models.Trainer",
+        "Type": "PokemonAPI.Models.Trainer.Trainer",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -304,7 +304,7 @@
       },
       {
         "Name": "trainer",
-        "Type": "PokemonAPI.Models.Trainer",
+        "Type": "PokemonAPI.Models.Trainer.Trainer",
         "IsRequired": true
       }
     ],

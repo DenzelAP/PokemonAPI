@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using PokemonAPI.Data;
+using PokemonAPI.Services.PokemonServices;
+using PokemonAPI.Services.TeamServices;
+using PokemonAPI.Services.TrainerService;
 
 namespace PokemonAPI
 {
@@ -11,15 +14,20 @@ namespace PokemonAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<PokemonDbContext>(options =>
                     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            
+            builder.Services.AddScoped<IPokemonService, PokemonService>();
+            builder.Services.AddScoped<ITrainerService, TrainerService>();
+            builder.Services.AddScoped<ITeamService, TeamService>();
+
+
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

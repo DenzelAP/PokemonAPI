@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\services\\teamservices\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\services\\teamservices\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\services\\trainerservice\\trainerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\services\\trainerservice\\trainerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\services\\trainerservice\\itrainerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\services\\trainerservice\\itrainerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\services\\teamservices\\iteamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\services\\teamservices\\iteamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\controllers\\pokemoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\controllers\\pokemoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|c:\\users\\bruck\\desktop\\programming\\ap\\2024-25\\api ontwikkeling\\pokemonapi\\pokemonapi\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69064F65-50FA-4F90-90A1-51991998E72F}|PokemonAPI\\PokemonAPI.csproj|solutionrelative:pokemonapi\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,42 +46,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Pokemon.cs",
-              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Models\\Pokemon.cs",
-              "RelativeDocumentMoniker": "PokemonAPI\\Models\\Pokemon.cs",
-              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Models\\Pokemon.cs",
-              "RelativeToolTip": "PokemonAPI\\Models\\Pokemon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ITeamService.cs",
+              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TeamServices\\ITeamService.cs",
+              "RelativeDocumentMoniker": "PokemonAPI\\Services\\TeamServices\\ITeamService.cs",
+              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TeamServices\\ITeamService.cs",
+              "RelativeToolTip": "PokemonAPI\\Services\\TeamServices\\ITeamService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T13:37:46.011Z",
+              "WhenOpened": "2024-12-20T15:52:31.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TeamService.cs",
+              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TeamServices\\TeamService.cs",
+              "RelativeDocumentMoniker": "PokemonAPI\\Services\\TeamServices\\TeamService.cs",
+              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TeamServices\\TeamService.cs",
+              "RelativeToolTip": "PokemonAPI\\Services\\TeamServices\\TeamService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T15:50:52.923Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Program.cs",
-              "RelativeDocumentMoniker": "PokemonAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Program.cs",
-              "RelativeToolTip": "PokemonAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Title": "ITrainerService.cs",
+              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TrainerService\\ITrainerService.cs",
+              "RelativeDocumentMoniker": "PokemonAPI\\Services\\TrainerService\\ITrainerService.cs",
+              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TrainerService\\ITrainerService.cs",
+              "RelativeToolTip": "PokemonAPI\\Services\\TrainerService\\ITrainerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T13:34:53.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T15:52:24.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "TrainerService.cs",
+              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TrainerService\\TrainerService.cs",
+              "RelativeDocumentMoniker": "PokemonAPI\\Services\\TrainerService\\TrainerService.cs",
+              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Services\\TrainerService\\TrainerService.cs",
+              "RelativeToolTip": "PokemonAPI\\Services\\TrainerService\\TrainerService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA5wEMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T15:50:37.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PokemonController.cs",
               "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Controllers\\PokemonController.cs",
               "RelativeDocumentMoniker": "PokemonAPI\\Controllers\\PokemonController.cs",
               "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Controllers\\PokemonController.cs",
               "RelativeToolTip": "PokemonAPI\\Controllers\\PokemonController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T13:32:03.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T15:50:15.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "PokemonAPI\\Controllers\\TrainerController.cs",
+              "ToolTip": "C:\\Users\\bruck\\Desktop\\Programming\\AP\\2024-25\\API Ontwikkeling\\PokemonAPI\\PokemonAPI\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "PokemonAPI\\Controllers\\TrainerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T15:34:33.251Z"
             }
           ]
         }

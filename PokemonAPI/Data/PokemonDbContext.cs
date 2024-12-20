@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PokemonAPI.Models;
+using PokemonAPI.Models.Pokemon;
+using PokemonAPI.Models.Team;
+using PokemonAPI.Models.Trainer;
 
 namespace PokemonAPI.Data
 {
@@ -15,21 +17,6 @@ namespace PokemonAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Trainer>()
-                .HasMany(t => t.Teams)
-                .WithOne(te => te.Trainer)
-                .HasForeignKey(te => te.TrainerId);
-
-            modelBuilder.Entity<Team>()
-                .HasMany(te => te.Pokemons)
-                .WithOne(p => p.Team)
-                .HasForeignKey(p => p.TeamId);
-
-            modelBuilder.Entity<Pokemon>()
-                .HasOne(p => p.Trainer)
-                .WithMany(t => t.Pokemons)
-                .HasForeignKey(p => p.TrainerId);
-
             modelBuilder.Entity<Pokemon>().HasData(
                 new Pokemon { Id = 1, Name = "Squirtle", Type = "Water", Level = 25, TrainerId = 1, TeamId = 1 },
                 new Pokemon { Id = 2, Name = "Charmander", Type = "Fire", Level = 12, TrainerId = 1, TeamId = 1 },

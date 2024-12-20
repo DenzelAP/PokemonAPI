@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PokemonAPI.Data;
-using PokemonAPI.Models;
+using PokemonAPI.Models.Team;
+using PokemonAPI.Services.TeamServices;
 
 namespace PokemonAPI.Controllers
 {
@@ -10,24 +11,24 @@ namespace PokemonAPI.Controllers
     [ApiController]
     public class TeamController : ControllerBase
     {
-        private readonly PokemonDbContext _context;
+        private readonly ITeamService _teamService;
 
-        public TeamController(PokemonDbContext context)
+        public TeamController(ITeamService teamService)
         {
-            this._context = context;
+            this._teamService = teamService;
         }
 
         [HttpGet] // Get: api/Team
         public async Task<ActionResult<IEnumerable<Team>>> GetTeams()
         {
-            var team = await _context.Teams.ToListAsync();
-            return Ok(team);
+            var teams = await _teamService.GetAllTeamsAsync();
+            return Ok(teams);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Team>> GetTeam(int id)
         {
-            var team = await _context.Teams.FindAsync(id);
+            var team = await _teamService.GetTeamByIdAsync(id);
             if (team == null)
             {
                 return NotFound();
@@ -43,14 +44,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var newTeam = new Team
-            {
-                TeamName = teamDto.TeamName,
-                TrainerId = teamDto.TrainerId
-            };
-
-            _context.Teams.Add(newTeam);
-            await _context.SaveChangesAsync();
+            var newTeam = await _teamService.CreateTeamAsync(teamDto);
 
             return CreatedAtAction(nameof(GetTeam), new { id = newTeam.Id }, newTeam);
         }
@@ -63,31 +57,23 @@ namespace PokemonAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(team).State = EntityState.Modified;
-
-            try
+            var result = await _teamService.UpdateTeamAsync(id, team);
+            if (!result)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException) when (!_context.Teams.Any(t => t.Id == id))
-            {
-
                 return NotFound();
             }
+
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTeam(int id)
         {
-            var team = await _context.Teams.FindAsync(id);
-            if (team == null)
+            var result = await _teamService.DeleteTeamAsync(id);
+            if (!result)
             {
                 return NotFound();
             }
-
-            _context.Remove(team);
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }

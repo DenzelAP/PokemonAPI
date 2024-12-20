@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PokemonAPI.Models
+namespace PokemonAPI.Models.Team
 {
     public class TeamCreateDto
     {

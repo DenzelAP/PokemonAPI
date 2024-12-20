@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PokemonAPI.Data;
-using PokemonAPI.Models;
+using PokemonAPI.Models.Trainer;
+using PokemonAPI.Services.TrainerService;
 
 namespace PokemonAPI.Controllers
 {
@@ -10,24 +9,25 @@ namespace PokemonAPI.Controllers
     [ApiController]
     public class TrainerController : ControllerBase
     {
-        private readonly PokemonDbContext _context;
 
-        public TrainerController(PokemonDbContext context)
+        private readonly ITrainerService _trainerService;
+
+        public TrainerController(ITrainerService trainer)
         {
-            this._context = context;
+            this._trainerService = trainer;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Trainer>>> GetTrainers()
         {
-            var trainers = await _context.Trainers.ToListAsync();
+            var trainers = await _trainerService.GetAllTrainersAsync();
             return Ok(trainers);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Trainer>> GetTrainer(int id)
         {
-            var trainer = await _context.Trainers.FindAsync(id);
+            var trainer = await _trainerService.GetTrainerByIdAsync(id);
             if (trainer == null)
             {
                 return NotFound();
@@ -43,16 +43,9 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var NewTrainer = new Trainer
-            {
-                Name = trainerDto.Name,
-                Age = trainerDto.Age
-            };
+            var newTrainer = await _trainerService.CreateTrainerAsync(trainerDto);
 
-            _context.Trainers.Add(NewTrainer);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetTrainer), new { id = NewTrainer.Id }, NewTrainer);
+            return CreatedAtAction(nameof(GetTrainer), new { id = newTrainer.Id }, newTrainer);
         }
 
         [HttpPut("{id}")]
@@ -63,31 +56,23 @@ namespace PokemonAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(trainer).State = EntityState.Modified;
-
-            try
+            var result = await _trainerService.UpdateTrainerAsync(id, trainer);
+            if (!result)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException) when (!_context.Trainers.Any(t => t.Id == id))
-            {
-
                 return NotFound();
             }
+
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTrainer(int id)
         {
-            var trainer = await _context.Trainers.FindAsync(id);
-            if (trainer == null)
+            var result = await _trainerService.DeleteTrainerAsync(id);
+            if (!result)
             {
                 return NotFound();
             }
-
-            _context.Remove(trainer);
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }
