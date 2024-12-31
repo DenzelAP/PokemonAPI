@@ -13,7 +13,7 @@ namespace PokemonAPI.Controllers
     {
         private readonly IPokemonService _pokemonService;
 
-        public PokemonController(PokemonDbContext context, IPokemonService pokemonService)
+        public PokemonController(IPokemonService pokemonService)
         {
             this._pokemonService = pokemonService;
         }
