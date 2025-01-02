@@ -85,8 +85,8 @@
         "IsRequired": true
       },
       {
-        "Name": "pokemon",
-        "Type": "PokemonAPI.Models.Pokemon.Pokemon",
+        "Name": "pokemonDto",
+        "Type": "PokemonAPI.Models.Pokemon.PokemonCreateDto",
         "IsRequired": true
       }
     ],
@@ -194,8 +194,8 @@
         "IsRequired": true
       },
       {
-        "Name": "team",
-        "Type": "PokemonAPI.Models.Team.Team",
+        "Name": "teamDto",
+        "Type": "PokemonAPI.Models.Team.TeamCreateDto",
         "IsRequired": true
       }
     ],
@@ -303,8 +303,8 @@
         "IsRequired": true
       },
       {
-        "Name": "trainer",
-        "Type": "PokemonAPI.Models.Trainer.Trainer",
+        "Name": "trainerDto",
+        "Type": "PokemonAPI.Models.Trainer.TrainerCreateDto",
         "IsRequired": true
       }
     ],

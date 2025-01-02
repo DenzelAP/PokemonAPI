@@ -53,9 +53,14 @@ namespace PokemonAPI.Controllers
         }
 
         [HttpPut("{id}")] // Put: api/Pokemon/5
-        public async Task<IActionResult> UpdatePokemon(int id, Pokemon pokemon)
+        public async Task<IActionResult> UpdatePokemon(int id, PokemonCreateDto pokemonDto)
         {
-           var updated = await _pokemonService.UpdatePokemonAsync(id, pokemon);
+            if (pokemonDto == null)
+            {
+                return BadRequest("Pokemon data is required.");
+            }
+
+            var updated = await _pokemonService.UpdatePokemonAsync(id, pokemonDto);
 
             if (!updated)
             {

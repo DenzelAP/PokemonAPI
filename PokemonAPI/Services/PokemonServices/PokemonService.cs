@@ -41,11 +41,25 @@ namespace PokemonAPI.Services.PokemonServices
             return pokemon;
         }
 
-        public async Task<bool> UpdatePokemonAsync(int id, Pokemon pokemon)
+        public async Task<bool> UpdatePokemonAsync(int id, PokemonCreateDto pokemonDto)
         {
-            if (id != pokemon.Id) return false;
+            // Find the Pokemon to update
+            var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (pokemon == null)
+            {
+                return false;
+            }
+
+            //Update the Pokemon from the DTO
+            pokemon.Name = pokemonDto.Name;
+            pokemon.Type = pokemonDto.Type;
+            pokemon.Level = pokemonDto.Level;
+            pokemon.TrainerId = pokemonDto.TrainerId;
+            pokemon.TeamId = pokemonDto.TeamId;
 
             _context.Entry(pokemon).State = EntityState.Modified;
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -55,6 +69,7 @@ namespace PokemonAPI.Services.PokemonServices
             {
                 if (!await _context.Pokemons.AnyAsync(p => p.Id == id))
                     return false;
+
                 throw;
             }
         }

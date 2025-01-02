@@ -7,7 +7,7 @@ namespace PokemonAPI.Services.PokemonServices
         public Task<IEnumerable<Pokemon>> GetAllPokemonsAsync();
         public Task<Pokemon> GetPokemonByIdAsync(int id);
         public Task<Pokemon> CreatePokemonAsync(PokemonCreateDto pokemonDto);
-        public Task<bool> UpdatePokemonAsync(int id, Pokemon pokemon);
+        public Task<bool> UpdatePokemonAsync(int id, PokemonCreateDto pokemon);
         public Task<bool> DeletePokemonAsync(int id);
     }
 }

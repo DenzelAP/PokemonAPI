@@ -14,19 +14,30 @@ namespace PokemonAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var useInMemory = builder.Configuration.GetValue<bool?>("InMemoryDatabase")
+                   ?? throw new InvalidOperationException("InMemoryDatabase configuration is missing.");
+
+
+            if (useInMemory)
+            {
+                // Register in-memory services
+                builder.Services.AddSingleton<IPokemonService, PokemonServiceInMemory>();
+                builder.Services.AddSingleton<ITeamService, TeamServiceInMemory>();
+                builder.Services.AddSingleton<ITrainerService, TrainerServiceInMemory>();
+            }
+            else
+            {
+                // Register database services
+                builder.Services.AddDbContext<PokemonDbContext>(options =>
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                builder.Services.AddScoped<IPokemonService, PokemonService>();
+                builder.Services.AddScoped<ITrainerService, TrainerService>();
+                builder.Services.AddScoped<ITeamService, TeamService>();
+            }
+
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<PokemonDbContext>(options =>
-                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-            builder.Services.AddScoped<IPokemonService, PokemonService>();
-            builder.Services.AddScoped<ITrainerService, TrainerService>();
-            builder.Services.AddScoped<ITeamService, TeamService>();
-
-
-
-
 
             var app = builder.Build();
 

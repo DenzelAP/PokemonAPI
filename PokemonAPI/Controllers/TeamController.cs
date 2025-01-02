@@ -50,14 +50,15 @@ namespace PokemonAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTeam(int id, Team team)
+        public async Task<IActionResult> UpdateTeam(int id, TeamCreateDto teamDto)
         {
-            if (id != team.Id)
+            if (teamDto == null)
             {
-                return BadRequest();
+                return BadRequest("Team data is required.");
             }
 
-            var result = await _teamService.UpdateTeamAsync(id, team);
+            var result = await _teamService.UpdateTeamAsync(id, teamDto);
+
             if (!result)
             {
                 return NotFound();

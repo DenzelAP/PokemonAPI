@@ -49,14 +49,14 @@ namespace PokemonAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTrainer(int id, Trainer trainer)
+        public async Task<IActionResult> UpdateTrainer(int id, [FromBody] TrainerCreateDto trainerDto)
         {
-            if (id != trainer.Id)
+            if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
-            var result = await _trainerService.UpdateTrainerAsync(id, trainer);
+            var result = await _trainerService.UpdateTrainerAsync(id, trainerDto);
             if (!result)
             {
                 return NotFound();

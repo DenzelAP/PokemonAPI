@@ -39,11 +39,17 @@ namespace PokemonAPI.Services.TeamServices
             return newTeam;
         }
 
-        public async Task<bool> UpdateTeamAsync(int id, Team team)
+        public async Task<bool> UpdateTeamAsync(int id, TeamCreateDto teamDto)
         {
-            if (id != team.Id) return false;
+            // Find the existing Team by ID
+            var teamToUpdate = await _context.Teams.FirstOrDefaultAsync(t => t.Id == id);
 
-            _context.Entry(team).State = EntityState.Modified;
+            if (teamToUpdate == null) return false;
+
+            // Update properties from the DTO
+            teamToUpdate.TeamName = teamDto.TeamName;
+
+            _context.Entry(teamToUpdate).State = EntityState.Modified;
 
             try
             {
@@ -52,8 +58,9 @@ namespace PokemonAPI.Services.TeamServices
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await _context.Teams.AnyAsync(t => t.Id == id))
+                if (!await _context.Teams.AnyAsync(t => t.Id == id)) // AnyAsync returns a boolean if any element in the collection matches the condition
                     return false;
+
                 throw;
             }
         }

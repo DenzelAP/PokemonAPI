@@ -51,7 +51,7 @@ namespace PokemonAPI.Services.TrainerService
             return true;
         }
 
-        public async Task<bool> UpdateTrainerAsync(int id, Trainer updatedTrainer)
+        public async Task<bool> UpdateTrainerAsync(int id, TrainerCreateDto trainerDto)
         {
             var trainer = await _context.Trainers.FindAsync(id);
             if (trainer == null)
@@ -59,8 +59,8 @@ namespace PokemonAPI.Services.TrainerService
                 return false;
             }
 
-            trainer.Name = updatedTrainer.Name;
-            trainer.Age = updatedTrainer.Age;
+            trainer.Name = trainerDto.Name;
+            trainer.Age = trainerDto.Age;
 
             _context.Trainers.Update(trainer);
             await _context.SaveChangesAsync();
