@@ -11,17 +11,17 @@ namespace PokemonAPI.Controllers
     [ApiController]
     public class PokemonController : ControllerBase
     {
-        private readonly IPokemonService _pokemonService;
+        private readonly IPokemonService pokemonService;
 
         public PokemonController(IPokemonService pokemonService)
         {
-            this._pokemonService = pokemonService;
+            this.pokemonService = pokemonService;
         }
 
         [HttpGet] // Get: api/Pokemon
         public async Task<ActionResult<IEnumerable<Pokemon>>> GetPokemons()
         {
-            var pokemon = await _pokemonService.GetAllPokemonsAsync();
+            var pokemon = await pokemonService.GetAllPokemonsAsync();
 
             return Ok(pokemon);
         }
@@ -29,7 +29,7 @@ namespace PokemonAPI.Controllers
         [HttpGet("{id}")] // Get: api/Pokemon/5
         public async Task<ActionResult<Pokemon>> GetPokemon(int id)
         {
-            var pokemon = await _pokemonService.GetPokemonByIdAsync(id);
+            var pokemon = await pokemonService.GetPokemonByIdAsync(id);
 
             if (pokemon == null)
             {
@@ -47,7 +47,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var createdPokemon = await _pokemonService.CreatePokemonAsync(pokemonDto);
+            var createdPokemon = await pokemonService.CreatePokemonAsync(pokemonDto);
 
             return CreatedAtAction(nameof(GetPokemon), new { id = createdPokemon.Id }, createdPokemon);
         }
@@ -60,7 +60,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest("Pokemon data is required.");
             }
 
-            var updated = await _pokemonService.UpdatePokemonAsync(id, pokemonDto);
+            var updated = await pokemonService.UpdatePokemonAsync(id, pokemonDto);
 
             if (!updated)
             {
@@ -73,7 +73,7 @@ namespace PokemonAPI.Controllers
         [HttpDelete("{id}")] // Delete: api/Pokemon/5
         public async Task<IActionResult> DeletePokemon(int id)
         {
-            var deletedPokemon = await _pokemonService.DeletePokemonAsync(id);
+            var deletedPokemon = await pokemonService.DeletePokemonAsync(id);
 
             if (!deletedPokemon)
             {

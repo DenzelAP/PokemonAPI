@@ -11,24 +11,24 @@ namespace PokemonAPI.Controllers
     [ApiController]
     public class TeamController : ControllerBase
     {
-        private readonly ITeamService _teamService;
+        private readonly ITeamService teamService;
 
         public TeamController(ITeamService teamService)
         {
-            this._teamService = teamService;
+            this.teamService = teamService;
         }
 
         [HttpGet] // Get: api/Team
         public async Task<ActionResult<IEnumerable<Team>>> GetTeams()
         {
-            var teams = await _teamService.GetAllTeamsAsync();
+            var teams = await teamService.GetAllTeamsAsync();
             return Ok(teams);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Team>> GetTeam(int id)
         {
-            var team = await _teamService.GetTeamByIdAsync(id);
+            var team = await teamService.GetTeamByIdAsync(id);
             if (team == null)
             {
                 return NotFound();
@@ -44,7 +44,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var newTeam = await _teamService.CreateTeamAsync(teamDto);
+            var newTeam = await teamService.CreateTeamAsync(teamDto);
 
             return CreatedAtAction(nameof(GetTeam), new { id = newTeam.Id }, newTeam);
         }
@@ -57,7 +57,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest("Team data is required.");
             }
 
-            var result = await _teamService.UpdateTeamAsync(id, teamDto);
+            var result = await teamService.UpdateTeamAsync(id, teamDto);
 
             if (!result)
             {
@@ -70,7 +70,7 @@ namespace PokemonAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTeam(int id)
         {
-            var result = await _teamService.DeleteTeamAsync(id);
+            var result = await teamService.DeleteTeamAsync(id);
             if (!result)
             {
                 return NotFound();

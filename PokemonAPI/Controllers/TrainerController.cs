@@ -10,24 +10,24 @@ namespace PokemonAPI.Controllers
     public class TrainerController : ControllerBase
     {
 
-        private readonly ITrainerService _trainerService;
+        private readonly ITrainerService trainerService;
 
         public TrainerController(ITrainerService trainer)
         {
-            this._trainerService = trainer;
+            this.trainerService = trainer;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Trainer>>> GetTrainers()
         {
-            var trainers = await _trainerService.GetAllTrainersAsync();
+            var trainers = await trainerService.GetAllTrainersAsync();
             return Ok(trainers);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Trainer>> GetTrainer(int id)
         {
-            var trainer = await _trainerService.GetTrainerByIdAsync(id);
+            var trainer = await trainerService.GetTrainerByIdAsync(id);
             if (trainer == null)
             {
                 return NotFound();
@@ -43,7 +43,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var newTrainer = await _trainerService.CreateTrainerAsync(trainerDto);
+            var newTrainer = await trainerService.CreateTrainerAsync(trainerDto);
 
             return CreatedAtAction(nameof(GetTrainer), new { id = newTrainer.Id }, newTrainer);
         }
@@ -56,7 +56,7 @@ namespace PokemonAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _trainerService.UpdateTrainerAsync(id, trainerDto);
+            var result = await trainerService.UpdateTrainerAsync(id, trainerDto);
             if (!result)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace PokemonAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTrainer(int id)
         {
-            var result = await _trainerService.DeleteTrainerAsync(id);
+            var result = await trainerService.DeleteTrainerAsync(id);
             if (!result)
             {
                 return NotFound();
