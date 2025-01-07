@@ -68,4 +68,17 @@ namespace PokemonAPI.Models
 }
 ```
 
+- Apply Migrations
+use Entity Framework Core to set up the database schema:
+
+- Add a migration:
+```
+Add-Migration InitialMigrate
+```
+
+- Apply the migration to the database:
+```
+Update-Database
+```
+
 
