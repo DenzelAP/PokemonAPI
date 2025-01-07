@@ -30,7 +30,7 @@ Ensure you have the following installed on your system:
 
 ### 2. Configure the Database
 - Open the appsettings.json file.
-- Locate the ConnectionStrings section and update it to match your database configuration:
+- Locate or create the ConnectionStrings section and update it to match your database configuration:
 ```
 {
   "ConnectionStrings": {
@@ -38,4 +38,34 @@ Ensure you have the following installed on your system:
   }
 }
 ```
+
+- Add a database context class (PokemonDbContext.cs) in the Data folder:
+```
+using Microsoft.EntityFrameworkCore;
+using PokemonAPI.Models;
+
+namespace PokemonAPI.Data
+{
+    public class PokemonDbContext : DbContext
+    {
+        public PokemonDbContext(DbContextOptions<PokemonDbContext> options) : base(options) { }
+
+        public DbSet<Pokemon> Pokemons { get; set; }
+    }
+}
+```
+- In the Models folder, create a Pokemon.cs file to define the Pokemon entity:
+```
+namespace PokemonAPI.Models
+{
+    public class Pokemon
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int Level { get; set; }
+    }
+}
+```
+
 
