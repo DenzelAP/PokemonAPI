@@ -73,7 +73,7 @@ use Entity Framework Core to set up the database schema:
 
 - Add a migration:
 ```
-Add-Migration InitialMigrate
+Add-Migration InitialCreate
 ```
 
 - Apply the migration to the database:
@@ -81,4 +81,6 @@ Add-Migration InitialMigrate
 Update-Database
 ```
 
+- Create the controllers
+In the Controllers folder, create a PokemonController.cs file to handle API requests:
 
